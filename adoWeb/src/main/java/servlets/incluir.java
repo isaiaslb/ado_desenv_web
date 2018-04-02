@@ -59,8 +59,8 @@ public class incluir extends HttpServlet {
         String nome = request.getParameter("nome");
         String imagem = request.getParameter("imagem");
         Double preco = Double.parseDouble(request.getParameter("valor"));
-        
-        Produto p = new Produto(nome,imagem, preco);
+        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+        Produto p = new Produto(nome,imagem, preco,quantidade);
         
         carrinho.add(p);
         

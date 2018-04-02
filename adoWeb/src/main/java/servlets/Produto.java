@@ -13,12 +13,21 @@ public class Produto {
     String nome;
     Double valor;
     String imagem;
-
+    int quantidade;
     
-    public Produto(String nome,String imagem, Double valor) {
+    public Produto(String nome,String imagem, Double valor,int quantidade) {
         this.nome = nome;
         this.imagem = imagem;
         this.valor = valor;
+        this.quantidade = quantidade;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
     
     public String getImagem() {
@@ -38,7 +47,7 @@ public class Produto {
     }
 
     public Double getValor() {
-        return valor;
+        return valor*quantidade;
     }
 
     public void setValor(Double valor) {

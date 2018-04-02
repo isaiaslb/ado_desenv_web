@@ -13,6 +13,18 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+         function teste() {
+    //alert(value);
+            var quantidade = document.getElementById("quantidade").value;
+            var nome = document.getElementById("nome").value;
+            var imagem = document.getElementById("imagem").value;
+            var valor = document.getElementById("valor").value;
+            //alert(quantidade+"\n"+nome+"\n"+imagem+"\valor");
+            window.location.href = "incluir?nome="+nome+"&imagem="+imagem+"&valor="+valor+"&quantidade="+quantidade;
+            //document.location : "incluir?nome="+nome+"&imagem="+imagem+"&valor="+valor+"&quantidade="+quantidade;
+}
+        </script>
     </head>
     <body>
         <%
@@ -21,6 +33,7 @@
     String autor = request.getParameter("autor");
     String imagem = request.getParameter("imagem");
     String detalhe = request.getParameter("detalhe");
+    int quantidade ;
     double valor = Double.parseDouble(request.getParameter("valor"));
     %>
         <div class="container">
@@ -91,8 +104,11 @@
                         <div class="form-row align-items-center">
                           <div class="col-auto my-1">
                             <label class="mr-sm-2" for="inlineFormCustomSelect">Quantidade</label>
-                            <input type="number" value="1" size="10" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                            <a class="btn btn-primary" href="incluir?nome=<%out.println(nome);%>&imagem=<%out.println(imagem);%>&valor=<%out.println(valor);%>">Adicionar ao Carrinho</a>
+                            <input type="number" onchange='teste(this.value)' id="quantidade" name="quantidade" value="1" size="10" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <a class="btn btn-primary" href="#" onclick="teste()">Adicionar ao Carrinho</a>
+                            <input type="hidden" name="nome" id="nome" value="<%out.println(nome);%>">
+                            <input type="hidden" name="imagem" id="imagem" value="<%out.println(imagem);%>">
+                            <input type="hidden" name="valor" id="valor" value="<%out.println(valor);%>">
                             <span><h2>&nbsp;R$&nbsp;<%out.println(valor);%></h2></span>                            
                           </div>
                         </div>                     

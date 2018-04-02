@@ -74,6 +74,7 @@
             <tr>
                 <td><a>LIVRO</a></td>                
                 <td><a>NOME</a></td>
+                <td><a>QUANTIDADE</a></td>
                 <td><a>VALOR</a></td>
             </tr>
             <%  
@@ -88,6 +89,7 @@
                     <tr>
                         <td><img src="<%=p.getImagem()%>" width="50px" ></td>
                         <td><a><%=p.getNome()%></td>
+                        <td><a><%=p.getQuantidade()%></td>
                         <td>
                             <a><% out.println(NumberFormat.getCurrencyInstance().format(p.getValor()));%></a>
                         </td>
@@ -103,7 +105,7 @@
                         <tr>
                             
                             
-                            <td colspan="3" align="right"><a>Total Geral: &nbsp;&nbsp;</a>
+                            <td colspan="4" align="right"><a>Total Geral: &nbsp;&nbsp;</a>
                                 <a><%out.println(NumberFormat.getCurrencyInstance().format(total));%></a>
                             </td>
                         </tr>
